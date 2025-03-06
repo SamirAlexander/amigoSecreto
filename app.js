@@ -28,5 +28,24 @@ function friendRenderList() {
   });  
 }
 
+function sortearAmigo() {
+  const randomIndex = Math.floor(Math.random() * friendsList.length);
+  const randomFriend = friendsList[randomIndex];
+  if (friendsList.length === 0) {
+    alert('No hay amigos para sortear');
+    return;
+  }
+  const result = document.getElementById('randomFriend');
+  result.innerHTML = `<h2>Amigo seleccionado</h2><li>${randomFriend}</li>`;
+  document.getElementById("botonSortear").setAttribute("disabled", "disabled");
+}
+
+function newGame(params) {
+  friendsList.length = 0;
+  friendRenderList();
+  const result = document.getElementById('randomFriend');
+  result.innerHTML = '';
+  document.getElementById("botonSortear").removeAttribute("disabled");
+}
 
 
